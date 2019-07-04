@@ -1,24 +1,29 @@
-# kafka-cli CLI
+# KAFKA CLI
 
-A CLI for kafka-cli.
+Produce and Consume messages kafka
 
-## Customizing your CLI
-
-Check out the documentation at https://github.com/infinitered/gluegun/tree/master/docs.
-
-## Publishing to NPM
-
-To package your CLI up for NPM, do this:
+## Producer
+### Run Commands and answer aks
 
 ```shell
-$ npm login
-$ npm whoami
-$ npm lint
-$ npm test
-(if typescript, run `npm run build` here)
-$ npm publish
+$ npm install -g kafka-cli
+$ kfk producer
+
+$  Whats host you broker?(default:localhost:9092):
+$  Whats topic you produce?:
 ```
 
+
+## Consumer
+### Run Commands and answer aks
+```shell
+$ npm install -g kafka-cli
+$ kfk consumer
+
+$ Whats host you broker?(default:localhost:9092)?:
+$  Whats topic you want consume?(separated by comma):
+$  How many partitions?(default: 0):
+```
 # License
 
 MIT - see LICENSE

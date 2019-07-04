@@ -15,7 +15,7 @@ module.exports = {
 
         const aksHost = { type: 'input', name: 'host', message: 'Whats host you broker?(default:localhost:9092)' }
         const aksTopic = { type: 'input', name: 'topics', message: 'Whats topic you want consume?(separated by comma)' }
-        const aksPartition = { type: 'input', name: 'partition', message: 'How many partitions?(0)' }
+        const aksPartition = { type: 'input', name: 'partition', message: 'How many partitions?(default: 0)' }
         const { host, topics, partitions } = await toolbox.prompt.ask([aksHost, aksTopic, aksPartition])
 
         let fetchRequestsList: Array<OffsetFetchRequest> = []
