@@ -2,7 +2,11 @@
   "name": "kafka-cli",
   "version": "0.0.1",
   "description": "kafka-cli CLI",
-  "private": true,
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/valcinei/kafka-cli"
+  },
   "bin": {
     "kfk": "bin/kafka-cli"
   },
