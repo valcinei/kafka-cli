@@ -4,7 +4,7 @@
   "description": "kafka-cli CLI",
   "private": true,
   "bin": {
-    "kafka-cli": "bin/kafka-cli"
+    "kfk": "bin/kafka-cli"
   },
   "scripts": {
     "format": "prettier --write **/*.{js,ts,tsx,json}",
