@@ -16,6 +16,7 @@ module.exports = {
         const aksHost = { type: 'input', name: 'host', message: 'Whats host you broker?(default:localhost:9092)' }
         const aksTopic = { type: 'input', name: 'topics', message: 'Whats topic you want consume?(separated by comma)' }
         const aksPartition = { type: 'input', name: 'partition', message: 'How many partitions?(default: 0)' }
+
         const { host, topics, partitions } = await toolbox.prompt.ask([aksHost, aksTopic, aksPartition])
 
         let fetchRequestsList: Array<OffsetFetchRequest> = []
@@ -25,7 +26,7 @@ module.exports = {
             topicList.forEach((topic: any) => {
                 let newTopic = {
                     topic: topic,
-                    partition:partitions?Number(partitions):0
+                    partition: partitions ? Number(partitions) : 0
                 }
                 fetchRequestsList.push(newTopic)
 
@@ -36,19 +37,19 @@ module.exports = {
         }
 
         if (host) {
-            startConsumer(fetchRequestsList, { kafkaHost: host })
+          await  startConsumer(fetchRequestsList, { kafkaHost: host })
         } else {
-            startConsumer(fetchRequestsList)
+          await  startConsumer(fetchRequestsList)
         }
     }
 
 }
 
 
-const startConsumer = (topicList?: Array<OffsetFetchRequest>, options?: KafkaClientOptions, autoCommit = false) => {
+const startConsumer = async(topicList?: Array<OffsetFetchRequest>, options?: KafkaClientOptions, autoCommit = false) => {
     const client = new KafkaClient(options);
     const consumer = new Consumer(client, topicList, { autoCommit: autoCommit });
-    consumer.on('message', function (message) {
+    consumer.on('message', (message) => {
         console.log(message);
     });
 
