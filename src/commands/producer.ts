@@ -12,7 +12,7 @@ import { GluegunToolbox } from 'gluegun';
         alias: ['p'],
         run: async (toolbox: GluegunToolbox) => {
 
-            const aksHost = { type: 'input', name: 'host', message: 'Whats host you broker?' }
+            const aksHost = { type: 'input', name: 'host', message: 'Whats host you broker?(default:localhost:9092)' }
             const aksTopic = { type: 'input', name: 'topic', message: 'Whats topic you produce?' }
             const  { host, topic } = await toolbox.prompt.ask([aksHost, aksTopic])
             if(host) {
@@ -26,7 +26,6 @@ import { GluegunToolbox } from 'gluegun';
                 sendMsg(topic, msg.data)
             }
         }
-
 
     }
 
